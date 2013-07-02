@@ -1,0 +1,93 @@
+{
+   "abstract" : "Interface to geographical functions of mapit.mysociety.org",
+   "author" : [
+      "Michael Jemmeson <mjemmeson@cpan.org>"
+   ],
+   "dynamic_config" : 0,
+   "generated_by" : "Dist::Zilla version 4.300034, CPAN::Meta::Converter version 2.120921",
+   "license" : [
+      "perl_5"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "WWW-MySociety-MapIt",
+   "no_index" : {
+      "directory" : [
+         "t",
+         "xt",
+         "examples",
+         "corpus"
+      ],
+      "package" : [
+         "DB"
+      ]
+   },
+   "prereqs" : {
+      "configure" : {
+         "requires" : {
+            "ExtUtils::MakeMaker" : "6.30"
+         }
+      },
+      "develop" : {
+         "requires" : {
+            "Pod::Coverage::TrustPod" : "0",
+            "Test::CPAN::Meta" : "0",
+            "Test::Pod" : "1.41",
+            "Test::Pod::Coverage" : "1.08"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "Carp" : "0",
+            "Geo::UK::Postcode::Regex" : "0",
+            "JSON" : "0",
+            "Moo" : "0",
+            "REST::Client" : "0",
+            "constant" : "0",
+            "perl" : "5.010",
+            "strict" : "0",
+            "warnings" : "0"
+         }
+      },
+      "test" : {
+         "requires" : {
+            "ExtUtils::MakeMaker" : "0",
+            "File::Find" : "0",
+            "File::Spec::Functions" : "0",
+            "File::Temp" : "0",
+            "List::Util" : "0",
+            "Test::More" : "0",
+            "Test::Most" : "0"
+         }
+      }
+   },
+   "provides" : {
+      "WWW::MySociety::MapIt" : {
+         "file" : "lib/WWW/MySociety/MapIt.pm",
+         "version" : "0.001"
+      },
+      "WWW::MySociety::MapIt::UK" : {
+         "file" : "lib/WWW/MySociety/MapIt/UK.pm",
+         "version" : "0.001"
+      }
+   },
+   "release_status" : "stable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/mjemmeson/www-mysociety-mapit/issues"
+      },
+      "homepage" : "https://metacpan.org/release/WWW-MySociety-MapIt",
+      "repository" : {
+         "type" : "git",
+         "url" : "git://github.com/mjemmeson/www-mysociety-mapit.git",
+         "web" : "https://github.com/mjemmeson/www-mysociety-mapit"
+      }
+   },
+   "version" : "0.001",
+   "x_contributors" : [
+      "Michael Jemmeson <michael.jemmeson@cpan.org>"
+   ]
+}
+
