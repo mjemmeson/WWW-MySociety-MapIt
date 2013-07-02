@@ -1,5 +1,9 @@
 package WWW::MySociety::MapIt::UK;
 
+# VERSION
+
+# ABSTRACT: Access to http://mapit.mysociety.org webservice
+
 use Moo;
 
 use Carp;
@@ -17,6 +21,52 @@ my %SRIDs = (
     irish_national_grid => 29902,
 );
 
+=head1 METHODS
+
+=head2 area
+
+=cut
+
+sub area {
+    my ($self,%args) = @_;
+
+    my $id = $args{id} || $args->{ons_code};
+
+    return $self->get("/area/$id");
+}
+
+sub area_example_postcode {
+    my ($self,%args) = @_;
+
+    my $id = $args{id};
+
+    return $self->get("/area/$id/example_postcode");
+}
+
+sub area_geometry {
+    my ($self,%args) = @_;
+
+    my $id = $args{id};
+
+    return $self->get("/area/$id/geometry");
+}
+
+sub area_polygon {
+my ($self,%args) = @_;
+
+my $id = $args{id};
+my $output = $args{output} or croak "No output";l
+
+croak "Invalid output" unless $output =~ m/^(?:xml|json|wkt)$/;
+# /area/[area ID].[kml or geojson or wkt]
+# /area/[SRID]/[area ID].[kml or json or wkt]
+
+}
+
+=head2 nearest_postcode
+
+=cut
+
 sub nearest_postcode {
     my ( $self, %args ) = @_;
 
@@ -25,6 +75,11 @@ sub nearest_postcode {
     return $self->get(
         sprintf( "/nearest/%s/%s,%s", $args{srid}, $args{x}, $args{y} ) );
 }
+
+
+=head2 point
+
+=cut
 
 sub point {
     my ( $self, %args ) = @_;
@@ -39,6 +94,10 @@ sub point {
     );
 }
 
+=head2 postcode
+
+=cut
+
 sub postcode {
     my ($self,$pc) = @_;
     my $parsed
@@ -49,8 +108,6 @@ sub postcode {
 
     return $self->get("$uri$pc");
 }
-
-
 
 sub get {
     my ( $self, $uri ) = @_;
